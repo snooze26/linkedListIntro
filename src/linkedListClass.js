@@ -1,36 +1,38 @@
-import { node } from "./nodeClass.js"
-export function linkedList() {
-    let head = new node();
-    let temp = head; 
+// TURN ALL OF THIS INTO A CLASS!!!!!!!!!
 
-    const appendToEnd = function(temp) {
-        if (temp === null) {
-            prependToFront(temp);
-        } 
-        while (temp.next != null) {
-            temp = temp.nextl
-            temp.next = new node(item, null);
-        }
-        return temp;
-    }
 
-    const prependToFront = function(node) {
-        console.log(node);
-        if (head === null) console.error("Here is error my boy");
-            return head.value;
+// import { node } from "./nodeClass.js"
+// export function linkedList() {
+//     let list = []; 
+//     let head = new node();
+
+//     const appendToEnd = function(head) {
+//         let temp = head; 
+
+//         if (temp === null) {
+//             prependToFront(temp);
+//         } 
+//         while (temp.next != null) {
+//             temp = temp.next;
+//             temp.next = new node(item, null);
+//         }
+//         return {head, temp};
+//     }
+
+//     const prependToFront = function(head) {
+//         console.log("new node" , head);
+//         if (head == null) console.error("Here is error my boy");
+//         return 
     
-    }
+//     }
 
-    return {appendToEnd, prependToFront};
+//     return {appendToEnd, head, prependToFront};
 
-}
+// }
 
-const newNode = new node("Test", 'next');
-console.log(newNode); 
+// const newNode = new node("Test", "next");
+// // console.log(newNode); 
 
-const list = new linkedList();
-// list.prependToFront("Dog");
-list.prependToFront(newNode);
-// list.appendToEnd("rat");
-
-console.log(list.toString());
+// const list = new linkedList();
+// list.prependToFront(newNode);
+// console.log(list.toString());

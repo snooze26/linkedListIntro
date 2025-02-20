@@ -1,11 +1,14 @@
-export function node(value, next){ 
-    this.value = null;
-    this.next = null;
+// TURN ALL OF THIS INTO A CLASS!!!!!!!!!
 
 
-    return { value, next }; 
+// export function node(value, next){ 
+//     this.value = null;
+//     this.next = null;
 
-}
+
+//     return { value, next }; 
+
+// }
 
 
 // node();
