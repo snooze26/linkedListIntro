@@ -1,14 +1,12 @@
 // TURN ALL OF THIS INTO A CLASS!!!!!!!!!
+export class node {
+    constructor(value, next = null){
+        this.value = value;
+        this.next = next
+    }
 
+}
 
-// export function node(value, next){ 
-//     this.value = null;
-//     this.next = null;
-
-
-//     return { value, next }; 
-
-// }
 
 
 // node();

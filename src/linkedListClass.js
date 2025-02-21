@@ -1,7 +1,52 @@
 // TURN ALL OF THIS INTO A CLASS!!!!!!!!!
 
+import { node } from "./nodeClass.js"
 
-// import { node } from "./nodeClass.js"
+    export class linkedList { 
+        constructor() {
+            this.tail = null;
+            this.head = null; 
+
+        }
+
+        
+        append(node) {
+            if (!this.head) {
+                this.head = node;
+                this.tail = node; 
+            } else { 
+                this.tail = node; 
+                this.tail = node; 
+            }
+        }
+
+        prepend(node) {
+            if(!this.tail) { 
+                this.head = node;
+                this.tail = node.next 
+            }
+            this.head = node;
+        }
+        
+        size() { 
+            
+        }
+    }
+
+let testList = new linkedList(); 
+const testNode = new node(5, null);
+const testNode2 = new node(6, testNode);
+const testNode3 = new node(7, null);
+
+
+
+testList.append(testNode3)
+testList.prepend(testNode);
+console.log("After first prepend", testList);
+testList.prepend(testNode2);
+
+console.log(testList);
+
 // export function linkedList() {
 //     let list = []; 
 //     let head = new node();
