@@ -57,6 +57,16 @@ import { node } from "./nodeClass.js"
             };
             return current.value; //return the value at this index 
         }
+
+        showList(){
+                let current = this.head; 
+                let index = 0; 
+                while(current) {
+                    console.log(`Index: ${index++} Value: ${current.value}`);
+                    current = current.next; 
+                }
+
+        }
     }
 
 let testList = new linkedList(); 
@@ -69,12 +79,9 @@ const testNode2 = new node(6, null);
 
 
 testList.prepend(testNode);
-console.log(testList, "first run APPEND")
 testList.append(testNode3);
-console.log("second run APPEND", testList)
 testList.prepend(testNode2)
-console.log("third run PREPEND", testList)
-
+testList.showList();
 
 
 
