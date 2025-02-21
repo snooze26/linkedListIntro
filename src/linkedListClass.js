@@ -59,13 +59,12 @@ import { node } from "./nodeClass.js"
         }
 
         showList() {
-                let current = this.head; 
-                let index = 0; 
-                while(current) {
-                    console.log(`Index: ${index++} Value: ${current.value}`);
-                    current = current.next; 
-                }
-
+            let current = this.head; 
+            let index = 0; 
+            while(current) {
+                console.log(`Index: ${index++} Value: ${current.value}`);
+                current = current.next; 
+            }
         }
 
         pop() { 
@@ -99,19 +98,54 @@ import { node } from "./nodeClass.js"
                 current = current.next;
             }
             return false;
-            
         }
-    }
+
+        find(value) {
+            if(!this.head) return null; 
+
+            let current = this.head; 
+            let count = 1;
+
+            while (current) {
+
+                if (current.value === value) return count;
+                current = current.next;
+                count++
+            }
+
+            return null; 
+            }
+
+            toString() { 
+                let current = this.head; 
+                let str = ""
+                
+                while(current) {
+                    str +=  `Value: ${current.value}, Next: ${current.next ? "-> " : ""}`;
+                    current = current.next;
+                }
+                return str;
+            }
+        }
 
 let testList = new linkedList(); 
 const testNode = new node(5, null);
 const testNode2 = new node(6, null);
 const testNode3 = new node(7, null);
+const testNode5 = new node(11, null);
+const testNode6 = new node(20, null);
+const testNode7 = new node(550, null);
+
+
 testList.append(testNode);
 testList.append(testNode2);
 testList.append(testNode3);
+testList.append(testNode5);
+testList.append(testNode6);
+testList.prepend(testNode7);
 
-console.log(testList.contains(10));
+console.log(testList.toString());
+
 
 
 
