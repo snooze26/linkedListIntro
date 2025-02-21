@@ -142,10 +142,42 @@ import { node } from "./nodeClass.js"
                 };
                 current.value = value;
                 return current;
-
-            
             }
-            
+
+            removeAt(index) {
+                if (!this.head) return null; 
+                if (index < 0 || index >= this.size) return null; 
+
+
+                if( index === 0 ) { 
+                    const byeNode = this.head.value;
+                    this.head = this.head.next; //replaces orginal head with next head
+                    if (!this.head) {
+                        this.tail = null; 
+                    }
+                    this.size--;
+                    return byeNode;
+                }
+
+                let current = this.head;
+                let previous = null;
+                let count = 0; 
+
+                while(count < index) { 
+                    previous = current;
+                    current = current.next; 
+                    count++; 
+                }
+
+                previous.next = current.next; 
+
+                if(!current.next){ // checks if removed now was thre tail/ then updates
+                    this.tail = previous
+                }
+
+                this.size--;
+                return current.value;    
+            }
         }
 
 let testList = new linkedList(); 
@@ -164,7 +196,7 @@ testList.append(testNode5);
 testList.append(testNode6);
 testList.prepend(testNode7);
 
-console.log(testList.insertAt("Test", 0));
+console.log(testList.removeAt(5));
 testList.showList();
 
 
