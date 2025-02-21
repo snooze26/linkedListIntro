@@ -121,7 +121,7 @@ import { node } from "./nodeClass.js"
                 let str = ""
                 
                 while(current) {
-                    str +=  `Value: ${current.value}, Next: ${current.next ? "-> " : ""}`;
+                    str +=  `Value: ${current.value}, Next: ${current.next ? "-> " : "null"}`;
                     current = current.next;
                 }
                 return str;
