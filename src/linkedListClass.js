@@ -88,22 +88,33 @@ import { node } from "./nodeClass.js"
             this.size--
             return this.tail;
         }
+        
+        contains(value){
+            if(!this.head) return false; 
 
+            let current = this.head; 
+
+            while (current) {
+                if (current.value === value) return true;
+                current = current.next;
+            }
+            return false;
+            
+        }
     }
 
 let testList = new linkedList(); 
-const testNode3 = new node(7, null);
 const testNode = new node(5, null);
 const testNode2 = new node(6, null);
+const testNode3 = new node(7, null);
+testList.append(testNode);
+testList.append(testNode2);
+testList.append(testNode3);
+
+console.log(testList.contains(10));
 
 
 
 
 
-testList.prepend(testNode);
-testList.append(testNode3)
-testList.prepend(testNode2)
-testList.showList();
-console.log(testList.pop());
-console.log("run after pop", testList.showList());
-console.log("run after pop SIZE ", testList.size);
+
