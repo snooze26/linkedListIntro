@@ -51,14 +51,14 @@ import { node } from "./nodeClass.js"
             let current = this.head; 
             let count = 0; 
 
-            while (count < index ){
+            while (count < index ) {
                 current = current.next; //moves onto the next node
                 count ++; // count increments until it reached index value 
             };
             return current.value; //return the value at this index 
         }
 
-        showList(){
+        showList() {
                 let current = this.head; 
                 let index = 0; 
                 while(current) {
@@ -67,6 +67,28 @@ import { node } from "./nodeClass.js"
                 }
 
         }
+
+        pop() { 
+            if(!this.head) return null; 
+            if(!this.head.next) {
+                const node = this.head.value;
+                this.head = null;
+                this.tail = null; 
+                this.size = 0; 
+                return node;
+            }
+
+            let secondLast = this.head;
+            while(secondLast.next.next) {
+                secondLast = secondLast.next;
+            };
+            secondLast.next = null; 
+            this.tail = secondLast;
+
+            this.size--
+            return this.tail;
+        }
+
     }
 
 let testList = new linkedList(); 
@@ -79,9 +101,9 @@ const testNode2 = new node(6, null);
 
 
 testList.prepend(testNode);
-testList.append(testNode3);
+testList.append(testNode3)
 testList.prepend(testNode2)
 testList.showList();
-
-
-
+console.log(testList.pop());
+console.log("run after pop", testList.showList());
+console.log("run after pop SIZE ", testList.size);
