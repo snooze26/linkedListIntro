@@ -196,8 +196,7 @@ testList.append(testNode5);
 testList.append(testNode6);
 testList.prepend(testNode7);
 
-console.log(testList.removeAt(5));
-testList.showList();
+console.log(testList.toString());
 
 
 
