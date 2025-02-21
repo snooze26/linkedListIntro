@@ -24,7 +24,7 @@ import { node } from "./nodeClass.js"
         prepend(node) {
             if(!this.tail) { 
                 this.head = node;
-                this.tail = node.next 
+                this.tail = node 
                 
             }
             this.head = node;
@@ -34,20 +34,40 @@ import { node } from "./nodeClass.js"
         getSize() { 
             return this.size; 
         }
+
+        getHead() { 
+            return this.head;
+        }
+
+        getTail() { 
+            return this.tail;
+        }
+
+        at(index) {
+            if (index < 0 || index >= this.size) return null; 
+            // start at front of the list 
+            let current = this.head; 
+            let count = 0; 
+
+            while (count < index ){
+                current = current.next; //moves onto the next node
+                count ++; // count increments until it reached index value 
+            };
+            return current.value; //return the value at this index 
+        }
     }
 
 let testList = new linkedList(); 
-const testNode = new node(5, null);
-const testNode2 = new node(6, testNode);
 const testNode3 = new node(7, null);
+const testNode = new node(5, testNode3);
+const testNode2 = new node(6, testNode);
+
+
 
 
 
 testList.prepend(testNode);
-testList.append(testNode3)
+testList.append(testNode3);
+testList.append(testNode2)
 
-console.log("After first prepend", testList);
-// testList.prepend(testNode2);
-
-// console.log(testList);
-console.log(testList.getSize());
+console.log(testList.at(1));
