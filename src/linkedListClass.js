@@ -126,6 +126,26 @@ import { node } from "./nodeClass.js"
                 }
                 return str;
             }
+
+            insertAt(value, index) { 
+
+                if (index < 0 || index >= this.size) return null; 
+            
+                let current = this.head; 
+
+                let count = 0; 
+                console.log(count)
+                console.log(current.value)
+                while (count < index ) {
+                    current = current.next; //moves onto the next node
+                    count ++; // count increments until it reached index value 
+                };
+                current.value = value;
+                return current;
+
+            
+            }
+            
         }
 
 let testList = new linkedList(); 
@@ -144,7 +164,9 @@ testList.append(testNode5);
 testList.append(testNode6);
 testList.prepend(testNode7);
 
-console.log(testList.toString());
+console.log(testList.insertAt("Test", 0));
+testList.showList();
+
 
 
 
