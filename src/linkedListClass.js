@@ -6,7 +6,7 @@ import { node } from "./nodeClass.js"
         constructor() {
             this.tail = null;
             this.head = null; 
-
+            this.size = 0;
         }
 
         
@@ -16,20 +16,23 @@ import { node } from "./nodeClass.js"
                 this.tail = node; 
             } else { 
                 this.tail = node; 
-                this.tail = node; 
             }
+            this.size++
+
         }
 
         prepend(node) {
             if(!this.tail) { 
                 this.head = node;
                 this.tail = node.next 
+                
             }
             this.head = node;
+            this.size++;
         }
         
-        size() { 
-            
+        getSize() { 
+            return this.size; 
         }
     }
 
@@ -40,13 +43,14 @@ const testNode3 = new node(7, null);
 
 
 
-testList.append(testNode3)
 testList.prepend(testNode);
+testList.append(testNode3)
+
 console.log("After first prepend", testList);
-testList.prepend(testNode2);
+// testList.prepend(testNode2);
 
-console.log(testList);
-
+// console.log(testList);
+console.log(testList.getSize());
 // export function linkedList() {
 //     let list = []; 
 //     let head = new node();
